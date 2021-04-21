@@ -31,5 +31,5 @@
     "**/*.ts",
     "**/*.tsx",
     "src/reportWebVitals.js"
-, "src/stories/Button.js", "src/stories/Header.js", "src/App.js", "src/components/page/Page.js", "src/components/button/Button.js", "src/components/header/Header.js"  ]
+, "src/stories/Button.js", "src/stories/Header.js", "src/App.js", "src/components/page/Page.js", "src/components/button/Button.tsx", "src/components/header/Header.js"  ]
 }
