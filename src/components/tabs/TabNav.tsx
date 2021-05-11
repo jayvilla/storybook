@@ -13,12 +13,18 @@ export const TabNav = (props: TabNavProps) => {
     return tabLabels.map((tabLabel, i) => {
       const tabNavItemClass = [
         'tab-nav-item',
+        `nav-index-${i}`,
         `${tabLabel}`,
         props.activeTab === i ? 'active' : '',
       ].join(' ');
 
       return (
-        <li className={tabNavItemClass} key={i} onClick={props.handleTabNavClick(i)}>
+        <li
+          className={tabNavItemClass}
+          data-cy={`navIndex-${i}`}
+          key={i}
+          onClick={props.handleTabNavClick(i)}
+        >
           {tabLabel}
         </li>
       );

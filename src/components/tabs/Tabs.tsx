@@ -25,7 +25,12 @@ export const Tabs = (props: TabsProps) => {
 
   const renderChildren = (children: React.ReactElement[]) => {
     return children.map((child, i) => (
-      <Tab key={i} isActiveTab={activeTab === i}>
+      <Tab
+        className={`tab tab-index-${i}`}
+        key={i}
+        data-cy={`tabIndex-${i}`}
+        isActiveTab={activeTab === i}
+      >
         {child}
       </Tab>
     ));
