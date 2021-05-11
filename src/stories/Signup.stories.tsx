@@ -9,5 +9,5 @@ const Template = (args) => <Signup {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  title: '',
+  title: 'Sign up',
 };

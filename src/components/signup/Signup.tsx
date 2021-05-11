@@ -15,8 +15,8 @@ import { FormMessage, SignUpFormErrors, SignUpFormValues } from './types';
 export type SignupProps = {
   title?: string;
   /* add these handlers */
-  onError?: (formError) => void;
-  onSubmit?: (formValues: SignUpFormValues) => void;
+  onError?: (e: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (e: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export const Signup = (props: SignupProps) => {
@@ -35,8 +35,20 @@ export const Signup = (props: SignupProps) => {
     });
   };
 
+  const handleFormError = async (e?: React.FormEvent<HTMLFormElement>) => {
+    if (props.onError) {
+      props.onError(e);
+    }
+    /* Handle Error */
+  };
+
   const handleFormSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    if (props.onSubmit) {
+      props.onSubmit(e);
+    }
+
     const validForm = validateForm();
     let user;
 
@@ -158,8 +170,8 @@ export const Signup = (props: SignupProps) => {
 
   return (
     <div className={signUpClass}>
-      <form onSubmit={handleFormSubmit}>
-        <h1 className={formTitleClass}>Signup</h1>
+      <form onError={handleFormError} onSubmit={handleFormSubmit}>
+        <h1 className={formTitleClass}>{props.title || ''}</h1>
         <TextInput
           error={formErrors.firstName.error}
           errorMessage={formErrors.firstName.message}

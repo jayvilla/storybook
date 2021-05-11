@@ -2,35 +2,33 @@ import React from 'react';
 import './TabNav.scss';
 
 export type TabNavProps = {
-  activeTab?: string;
+  activeTab?: number;
   children?: React.ReactChild | React.ReactChild[];
-  setActiveTab?(string): React.MouseEventHandler<HTMLLIElement>;
-  tabs: string[];
+  handleTabNavClick?: (index) => React.MouseEventHandler<HTMLLIElement>;
+  tabLabels: string[];
 };
 
 export const TabNav = (props: TabNavProps) => {
-  const renderNav = (tabs: string[]) => {
-    return tabs.map((tabTitle, i) => {
+  const renderNav = (tabLabels: string[]) => {
+    return tabLabels.map((tabLabel, i) => {
       const tabNavItemClass = [
         'tab-nav-item',
-        `${tabTitle}`,
-        props.activeTab === tabTitle ? 'active' : '',
+        `${tabLabel}`,
+        props.activeTab === i ? 'active' : '',
       ].join(' ');
 
       return (
-        <li className={tabNavItemClass} key={i} onClick={props.setActiveTab(tabTitle)}>
-          {tabTitle}
+        <li className={tabNavItemClass} key={i} onClick={props.handleTabNavClick(i)}>
+          {tabLabel}
         </li>
       );
     });
   };
 
-  const tabNavClass = ['tab-nav'].join(' ');
-
   return (
-    <div className={tabNavClass}>
+    <div className='tab-nav'>
       <nav>
-        <ul>{props.tabs && renderNav(props.tabs)}</ul>
+        <ul>{props.tabLabels && renderNav(props.tabLabels)}</ul>
       </nav>
       {props.children}
     </div>
