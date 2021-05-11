@@ -1,0 +1,23 @@
+.signup {
+  min-width: 300px;
+  width: max-content;
+  height: max-content;
+  padding: 10px;
+
+  .signup-message {
+    font-size: 0.55rem;
+    margin: 20px 5px;
+    text-align: center;
+  }
+
+  .signup-message--error {
+    color: red;
+  }
+  .signup-message--success {
+    color: green;
+  }
+
+  button {
+    margin: 0 auto;
+  }
+}

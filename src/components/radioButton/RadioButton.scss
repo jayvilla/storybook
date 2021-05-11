@@ -1,0 +1,70 @@
+.radio--wrapper {
+  height: max-content;
+  margin: 25px 70px;
+  input[type='radio'] + label .check {
+    transition: background 0.2s, transform 0.2s;
+  }
+
+  input[type='radio']:checked + label .check {
+    background-color: var(--fill);
+    box-shadow: 0px 0px 0px 2px white inset;
+  }
+
+  input[type='radio']:checked + label {
+    // color: var(--fill);
+  }
+
+  .label {
+    position: absolute;
+    width: max-content;
+    transform-origin: center center;
+  }
+
+  .radio--circle {
+    border-radius: 50%;
+  }
+
+  .radio--square {
+  }
+
+  .radio--diamond {
+    transform: rotate(45deg);
+  }
+
+  .label.label--sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .label.label--md {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .label.label--lg {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .label.label--top {
+    top: -20px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label.label--bottom {
+    bottom: -40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .label.label--left {
+    right: 30px;
+    // transform: translate(-50%, 0%);
+  }
+
+  .label.label--right {
+    left: 30px;
+    // transform: translate(-50%, 0%);
+  }
+}

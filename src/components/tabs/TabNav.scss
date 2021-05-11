@@ -1,0 +1,17 @@
+.tab-nav {
+  ul {
+    display: flex;
+    flex-direction: row;
+    list-style-type: none;
+    margin-bottom: 25px;
+
+    li {
+      cursor: pointer;
+      padding: 5px 15px;
+    }
+  }
+
+  .tab-nav-item.active {
+    border-bottom: 2px solid rgb(44, 44, 172);
+  }
+}

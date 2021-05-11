@@ -1,0 +1,66 @@
+.drawer {
+  position: fixed;
+  transition: 250ms transform ease-in;
+  padding: 15px;
+}
+
+.drawer.drawer-left,
+.drawer.drawer-right {
+  width: 200px;
+  height: 100vh;
+  top: 0;
+}
+
+.drawer.drawer-top,
+.drawer.drawer-bottom {
+  height: 125px;
+  width: 100vw;
+}
+
+.drawer.drawer-left {
+  left: 0;
+}
+
+.drawer.drawer-left.open {
+  transform: translateX(0);
+}
+
+.drawer.drawer-left.close {
+  transform: translateX(-95%);
+}
+
+.drawer.drawer-right {
+  right: 0;
+}
+
+.drawer.drawer-right.open {
+  transform: translateX(0);
+}
+
+.drawer.drawer-right.close {
+  transform: translateX(95%);
+}
+
+.drawer.drawer-top {
+  top: 0;
+}
+
+.drawer.drawer-top.open {
+  transform: translateY(0);
+}
+
+.drawer.drawer-top.close {
+  transform: translateY(-90%);
+}
+
+.drawer.drawer-bottom {
+  bottom: 0;
+}
+
+.drawer.drawer-bottom.open {
+  transform: translateY(0);
+}
+
+.drawer.drawer-bottom.close {
+  transform: translateY(90%);
+}

@@ -1,0 +1,22 @@
+.tabs {
+  display: flex;
+  width: fit-content;
+  height: fit-content;
+}
+
+.tabs.tabs--row {
+  flex-direction: row;
+}
+
+.tabs.tabs--column {
+  flex-direction: column;
+}
+
+.tabs.tabs--row {
+  .tab-nav {
+    ul {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

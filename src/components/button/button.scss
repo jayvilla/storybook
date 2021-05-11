@@ -1,0 +1,50 @@
+.button {
+  padding: 5px 10px;
+  outline: none !important;
+}
+
+.button.button--sm {
+  height: 2rem;
+  width: 6rem;
+}
+
+.button.button--md {
+  height: 2.5rem;
+  width: 7.5rem;
+}
+
+.button.button--lg {
+  height: 3rem;
+  width: 12rem;
+}
+
+.button.button--primary {
+  background-color: rgba(30, 64, 175, 1);
+}
+
+.button.button--secondary {
+  background-color: rgba(156, 163, 175, 1);
+}
+
+.button.button--success {
+  background-color: rgba(5, 150, 105, 1);
+}
+
+.button.button--danger {
+  background-color: rgba(153, 27, 27, 1);
+}
+
+.button span.button-label--sm {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.button span.button-label--md {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.button span.button-label--lg {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}

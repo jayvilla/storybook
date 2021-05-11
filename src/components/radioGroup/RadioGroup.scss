@@ -1,0 +1,13 @@
+.radio-group--wrapper {
+  display: flex;
+  position: relative;
+  width: max-content;
+}
+
+.radio-group--column {
+  flex-direction: column;
+}
+
+.radio-group--row {
+  flex-direction: row;
+}

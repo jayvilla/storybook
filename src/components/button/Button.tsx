@@ -1,28 +1,44 @@
 import React from 'react';
-import './button.css';
+import './button.scss';
 
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: 'primary' | 'secondary' | 'success' | 'danger';
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   label?: string;
-}
+  size?: 'sm' | 'md' | 'lg';
+  variant?: 'primary' | 'secondary' | 'success' | 'danger';
+};
 
 export const Button = (props: ButtonProps) => {
+  const buttonClass = [
+    'button',
+    `button--${props.size}`,
+    `button--${props.variant}`,
+    'flex',
+    'bg-red-800',
+    'justify-center',
+    'items-center',
+    'uppercase',
+    'outline-none',
+    'text-center',
+    'rounded',
+    'tracking-wide',
+  ].join(' ');
 
-  let variant = props.variant || 'primary';
-
-  const buttonClass = ['button', 'h-5', 'w-14', 'outline-none', 'text-center', 'rounded', 'tracking-wide', `${variant}`].join(' ')
-  const labelClass = ['label', 'text-center'].join(' ');
+  const labelClass = [
+    'button-label',
+    `button-label--${props.size}`,
+    'text-center',
+    'text-white',
+  ].join(' ');
 
   return (
     <button className={buttonClass} {...props}>
       <span className={labelClass}>{props.label}</span>
     </button>
-  )
-}
+  );
+};
 
-// Button.defaultProps = {
-//   backgroundColor: null,
-//   primary: false,
-//   size: 'medium',
-//   onClick: undefined,
-// };
+Button.defaultProps = {
+  label: 'Button',
+  size: 'sm',
+  variant: 'primary',
+};

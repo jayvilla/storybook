@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-input-form-control {
+  position: relative;
+  margin: 25px 5px;
+
+  .text-input {
+    color: darkgray;
+    transition: all 250ms ease-in;
+  }
+
+  .text-input--sm {
+    height: 1rem;
+    width: 13rem;
+    padding: 0.75rem;
+  }
+
+  .text-input--md {
+    height: 1rem;
+    width: 16rem;
+    padding: 0.875rem;
+  }
+
+  .text-input--lg {
+    height: 1rem;
+    width: 24rem;
+    padding: 1rem;
+  }
+
+  .text-input::placeholder {
+    font-size: 0.65rem;
+  }
+
+  .text-input.text-input--default {
+    border-bottom: 1px solid darkgray;
+    border-radius: 0px;
+  }
+
+  .text-input.text-input--default:hover,
+  .text-input.text-input--default:focus {
+    border-bottom: 1px solid blue;
+  }
+
+  .text-input.text-input--outlined {
+    border: 1px solid darkgray;
+  }
+
+  .text-input.text-input--outlined:hover,
+  .text-input.text-input--outlined:focus {
+    border: 1px solid blue;
+  }
+
+  .text-input.text-input--filled {
+    border: 1px solid darkgray;
+    background-color: rgb(218, 216, 216);
+  }
+
+  .text-input.text-input--filled:hover,
+  .text-input.text-input--filled:focus {
+    background-color: rgb(238, 238, 238);
+  }
+
+  .text-input ~ .label {
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    color: #999999;
+    transition: 0.5s all ease;
+    pointer-events: none;
+  }
+
+  .text-input:focus ~ .label--sm,
+  .text-input:not(:focus):valid ~ .label--sm {
+    // transform: scale(0.7);
+    top: -20px;
+    left: 0;
+  }
+
+  .text-input:focus ~ .label--md,
+  .text-input:not(:focus):valid ~ .label--md {
+    // transform: scale(0.75);
+    top: -22.5px;
+    left: 0;
+  }
+
+  .text-input:focus ~ .label--lg,
+  .text-input:not(:focus):valid ~ .label--lg {
+    // transform: scale(0.8);
+    top: -25px;
+    left: 0;
+  }
+
+  .label.label--sm {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  .label.label--md {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  .label.label--lg {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  .text-input-error {
+    width: fit-content;
+    margin: 5px 0;
+    font-size: 0.55rem;
+    color: red;
+  }
+}

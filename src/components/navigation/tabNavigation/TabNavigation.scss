@@ -1,0 +1,29 @@
+.tab-nav-main {
+  .tab-nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    background-color: #f5f5f5;
+    min-height: 75px;
+
+    ul {
+      display: flex;
+      flex-direction: row;
+      list-style-type: none;
+
+      li {
+        cursor: pointer;
+        padding: 5px 15px;
+      }
+    }
+
+    .tab-nav-link.active {
+      border-bottom: 2px solid rgb(85, 85, 85);
+    }
+  }
+
+  .tab-nav-tab {
+    padding: 15px 0;
+  }
+}
