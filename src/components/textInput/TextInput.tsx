@@ -59,7 +59,11 @@ export const TextInput = (props: TextInputProps) => {
         <input className={inputClass} {...other} />
         {Label}
       </label>
-      {error && errorMessage && <div className={textInputErrorClass}>{errorMessage}</div>}
+      {error && errorMessage && (
+        <div className={textInputErrorClass} data-cy='signup-error'>
+          {errorMessage}
+        </div>
+      )}
     </div>
   );
 };

@@ -173,6 +173,7 @@ export const Signup = (props: SignupProps) => {
       <form onError={handleFormError} onSubmit={handleFormSubmit}>
         <h1 className={formTitleClass}>{props.title || ''}</h1>
         <TextInput
+          data-cy='signup-firstName'
           error={formErrors.firstName.error}
           errorMessage={formErrors.firstName.message}
           label='First Name'
@@ -185,6 +186,7 @@ export const Signup = (props: SignupProps) => {
           variant='outlined'
         />
         <TextInput
+          data-cy='signup-lastName'
           error={formErrors.lastName.error}
           errorMessage={formErrors.lastName.message}
           label='Last Name'
@@ -197,6 +199,7 @@ export const Signup = (props: SignupProps) => {
           variant='outlined'
         />
         <TextInput
+          data-cy='signup-email'
           error={formErrors.email.error}
           errorMessage={formErrors.email.message}
           label='Email'
@@ -209,6 +212,7 @@ export const Signup = (props: SignupProps) => {
           variant='outlined'
         />
         <TextInput
+          data-cy='signup-password'
           error={formErrors.password.error}
           errorMessage={formErrors.password.message}
           label='Password'
@@ -221,6 +225,7 @@ export const Signup = (props: SignupProps) => {
           variant='outlined'
         />
         <TextInput
+          data-cy='signup-confirmPassword'
           error={formErrors.confirmPassword.error}
           errorMessage={formErrors.confirmPassword.message}
           label='Confirm Password'
@@ -233,6 +238,7 @@ export const Signup = (props: SignupProps) => {
           variant='outlined'
         />
         <TextInput
+          data-cy='signup-phoneNumber'
           error={formErrors.phoneNumber.error}
           errorMessage={formErrors.phoneNumber.message}
           label='Phone Number'
@@ -246,7 +252,11 @@ export const Signup = (props: SignupProps) => {
         />
         <Button variant='success' size='md' label='Sign Up' type='submit' />
 
-        {formMessage.message && <div className={formMessageClass}>{formMessage.message}</div>}
+        {formMessage.message && (
+          <div className={formMessageClass} data-cy='signup-message'>
+            {formMessage.message}
+          </div>
+        )}
       </form>
     </div>
   );

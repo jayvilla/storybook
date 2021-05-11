@@ -23,7 +23,7 @@ const getIframeBody = () =>
 describe('Storybook', () => {
   it('visits storybook', () => {
     cy.visit('/');
-    cy.get('#form-button').click();
-    getIframeBody().find('span.button-label').should('contain.html', 'Button');
+    getIframeBody();
+    getIframeDocument();
   });
 });
