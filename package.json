@@ -23,6 +23,10 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
+    "cy": "npx cypress run --headed",
+    "start:storybook": "start-storybook -p 6006 -s public --ci",
+    "cy:test:storybook": "cypress run --headed -C cypress.storybook.json",
+    "ci:start-and-test-storybook": "cross-env START_SERVER_AND_TEST_INSECURE=1 npm run start-server-and-test start:storybook http://localhost:6006 cy:test:storybook",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
@@ -64,6 +68,7 @@
     "@storybook/react": "^6.2.8",
     "@tailwindcss/postcss7-compat": "^2.1.0",
     "autoprefixer": "^9.8.6",
+    "cypress": "^7.3.0",
     "postcss": "^7.0.35",
     "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.0"
   }
