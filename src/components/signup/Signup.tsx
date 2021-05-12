@@ -36,18 +36,13 @@ export const Signup = (props: SignupProps) => {
   };
 
   const handleFormError = async (e?: React.FormEvent<HTMLFormElement>) => {
-    if (props.onError) {
-      props.onError(e);
-    }
+    props.onError?.(e);
     /* Handle Error */
   };
 
   const handleFormSubmit = async (e?: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-
-    if (props.onSubmit) {
-      props.onSubmit(e);
-    }
+    props.onSubmit?.(e);
 
     const validForm = validateForm();
     let user;

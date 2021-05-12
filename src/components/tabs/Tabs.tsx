@@ -23,19 +23,6 @@ export const Tabs = (props: TabsProps) => {
     setActiveTab(navIndex);
   };
 
-  const renderChildren = (children: React.ReactElement[]) => {
-    return children.map((child, i) => (
-      <Tab
-        className={`tab tab-index-${i}`}
-        key={i}
-        data-cy={`tabIndex-${i}`}
-        isActiveTab={activeTab === i}
-      >
-        {child}
-      </Tab>
-    ));
-  };
-
   const tabsClass = ['tabs', `tabs--${props.tabDirection}`].join(' ');
 
   return (
@@ -45,7 +32,17 @@ export const Tabs = (props: TabsProps) => {
         tabLabels={props.tabLabels}
         handleTabNavClick={handleTabNavClick}
       />
-      {props.children && renderChildren(props.children)}
+      {props.children &&
+        props.children.map((child, i) => (
+          <Tab
+            className={`tab tab-index-${i}`}
+            key={i}
+            data-cy={`tabIndex-${i}`}
+            isActiveTab={activeTab === i}
+          >
+            {child}
+          </Tab>
+        ))}
     </div>
   );
 };
