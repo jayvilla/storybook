@@ -5,36 +5,35 @@ export type TabNavProps = {
   activeTab?: number;
   children?: React.ReactChild | React.ReactChild[];
   handleTabNavClick?: (index) => React.MouseEventHandler<HTMLLIElement>;
-  tabLabels: string[];
+  tabs: any;
 };
 
 export const TabNav = (props: TabNavProps) => {
-  const renderNav = (tabLabels: string[]) => {
-    return tabLabels.map((tabLabel, i) => {
-      const tabNavItemClass = [
-        'tab-nav-item',
-        `nav-index-${i}`,
-        `${tabLabel}`,
-        props.activeTab === i ? 'active' : '',
-      ].join(' ');
-
-      return (
-        <li
-          className={tabNavItemClass}
-          data-cy={`navIndex-${i}`}
-          key={i}
-          onClick={props.handleTabNavClick(i)}
-        >
-          {tabLabel}
-        </li>
-      );
-    });
-  };
-
   return (
     <div className='tab-nav'>
       <nav>
-        <ul>{props.tabLabels && renderNav(props.tabLabels)}</ul>
+        <ul>
+          {props.tabs &&
+            props.tabs.map((tab, i) => {
+              const tabNavItemClass = [
+                'tab-nav-item',
+                `nav-index-${i + 1}`,
+                `${tab.props.label}`,
+                props.activeTab === i + 1 ? 'active' : '',
+              ].join(' ');
+
+              return (
+                <li
+                  className={tabNavItemClass}
+                  data-cy={`navIndex-${i + 1}`}
+                  key={i + 1}
+                  onClick={props.handleTabNavClick(i + 1)}
+                >
+                  {tab.props.label || i + 1}
+                </li>
+              );
+            })}
+        </ul>
       </nav>
       {props.children}
     </div>

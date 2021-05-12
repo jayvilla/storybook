@@ -7,11 +7,10 @@ export type TabsProps = {
   children: React.ReactElement<any, string | React.JSXElementConstructor<any>>[];
   defaultTabIndex?: number;
   tabDirection: 'column' | 'row';
-  tabLabels: string[];
 };
 
 export const Tabs = (props: TabsProps) => {
-  const [activeTab, setActiveTab] = React.useState<number>(0);
+  const [activeTab, setActiveTab] = React.useState<number>(1);
 
   React.useEffect(() => {
     if (props.defaultTabIndex) {
@@ -29,25 +28,19 @@ export const Tabs = (props: TabsProps) => {
     <div className={tabsClass}>
       <TabNav
         activeTab={activeTab}
-        tabLabels={props.tabLabels}
+        tabs={props.children}
         handleTabNavClick={handleTabNavClick}
       />
       {props.children &&
-        props.children.map((child, i) => (
-          <Tab
-            className={`tab tab-index-${i}`}
-            key={i}
-            data-cy={`tabIndex-${i}`}
-            isActiveTab={activeTab === i}
-          >
-            {child}
-          </Tab>
-        ))}
+        props.children.map((child, i) => {
+          if (i + 1 === activeTab)
+            return <div className={`tab tab-index-${i + 1}`}>{child}</div>;
+        })}
     </div>
   );
 };
 
 Tabs.defaultProps = {
-  defaultTabIndex: 0,
+  defaultTabIndex: 1,
   tabDirection: 'column',
 };

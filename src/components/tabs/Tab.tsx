@@ -3,11 +3,9 @@ import './Tab.scss';
 
 export type TabProps = React.HTMLAttributes<HTMLDivElement> & {
   children?: React.ReactChild | React.ReactChild[];
-  index?: number;
-  isActiveTab?: boolean;
+  label?: string;
 };
 
 export const Tab = (props: TabProps) => {
-  if (!props.isActiveTab) return null;
   return <div {...props}>{props.children}</div>;
 };
